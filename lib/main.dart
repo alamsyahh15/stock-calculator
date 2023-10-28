@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
+int counter = 0;
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.openBox("myBox");
@@ -31,21 +33,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  var box = Hive.box('myBox');
-
   void _incrementCounter() {
     setState(() {
-      _counter++;
-      box.put("counter", _counter);
+      counter++;
     });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _counter = box.get("counter") ?? 0;
   }
 
   @override
@@ -63,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '$counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
