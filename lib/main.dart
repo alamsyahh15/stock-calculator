@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  var box = Hive.box('myBox');
 
   void _incrementCounter() {
     setState(() {
