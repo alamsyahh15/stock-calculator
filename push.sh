@@ -1,1 +1,1 @@
-git subtree push --prefix build/web origin  gh-pages
+git push -u origin master && git subtree push --prefix build/web origin  gh-pages
