@@ -3,6 +3,7 @@ import 'package:hive/hive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.openBox("myBox");
   runApp(const MyApp());
 }
 
@@ -40,18 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void initialized() async {
-    final resultBox = await Hive.openBox("myBox");
-    box = resultBox;
-    _counter = box.get("counter") ?? 0;
-    setState(() {});
-  }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    initialized();
+    _counter = box.get("counter") ?? 0;
   }
 
   @override
