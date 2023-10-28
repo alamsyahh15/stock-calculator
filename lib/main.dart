@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -39,11 +40,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void initialized() async {
+    final resultBox = await Hive.openBox("myBox");
+    box = resultBox;
+    _counter = box.get("counter") ?? 0;
+    setState(() {});
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _counter = box.get("counter") ?? 0;
+    initialized();
   }
 
   @override
