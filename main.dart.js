@@ -53412,7 +53412,8 @@ av(){return new A.tI($.a95().Qh("myBox",t.z),B.p)}}
 A.tI.prototype={
 ME(){this.aI(new A.Y3(this))},
 aV(){this.bj()
-this.d=this.e.a4(0,"counter")},
+var s=this.e.a4(0,"counter")
+this.d=s},
 M(a){var s=null,r=A.aE(a).ax,q=r.k2
 r=q==null?r.c:q
 this.a.toString
