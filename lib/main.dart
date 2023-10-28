@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _counter = box.get("counter");
+    _counter = box.get("counter") ?? 0;
   }
 
   @override
